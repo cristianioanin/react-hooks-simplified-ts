@@ -18,6 +18,20 @@ const UseEffectComponent = lazy(
 const UseContextComponent = lazy(
   () => import('./components/UseContextComponent')
 );
+const UseRefComponent = lazy(() => import('./components/UseRefComponent'));
+const UseMemoComponent = lazy(() => import('./components/UseMemoComponent'));
+const UseCallbackComponent = lazy(
+  () => import('./components/UseCallbackComponent')
+);
+const UseReducerComponent = lazy(
+  () => import('./components/UseReducerComponent')
+);
+const UseTransitionComponent = lazy(
+  () => import('./components/UseTransitionComponent')
+);
+const UseDeferredValueComponent = lazy(
+  () => import('./components/UseDeferredValueComponent')
+);
 
 function App() {
   return (
@@ -35,14 +49,17 @@ function App() {
               path="/lesserKnownHooks"
               element={<NavbarLesserKnownHooks />}
             >
-              <Route path="useRef" element={<div>useRef</div>} />
-              <Route path="useMemo" element={<div>useMemo</div>} />
-              <Route path="useCallback" element={<div>useCallback</div>} />
-              <Route path="useReducer" element={<div>useReducer</div>} />
-              <Route path="useTransition" element={<div>useTransition</div>} />
+              <Route path="useRef" element={<UseRefComponent />} />
+              <Route path="useMemo" element={<UseMemoComponent />} />
+              <Route path="useCallback" element={<UseCallbackComponent />} />
+              <Route path="useReducer" element={<UseReducerComponent />} />
+              <Route
+                path="useTransition"
+                element={<UseTransitionComponent />}
+              />
               <Route
                 path="useDeferredValue"
-                element={<div>useDeferredValue</div>}
+                element={<UseDeferredValueComponent />}
               />
             </Route>
           </Routes>
