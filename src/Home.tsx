@@ -5,6 +5,7 @@ function Home() {
     <>
       <NavbarMustKnowHooks />
       <NavbarLesserKnownHooks />
+      <NavbarOptionalHooks />
     </>
   );
 }
@@ -36,6 +37,22 @@ export function NavbarLesserKnownHooks() {
         <Link to="/lesserKnownHooks/useReducer">useReducer</Link>
         <Link to="/lesserKnownHooks/useTransition">useTransition</Link>
         <Link to="/lesserKnownHooks/useDeferredValue">useDeferredValue</Link>
+      </nav>
+      <Outlet></Outlet>
+    </>
+  );
+}
+
+export function NavbarOptionalHooks() {
+  return (
+    <>
+      <h1>Optional Hooks</h1>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/optionalHooks/useLayoutEffect">useLayoutEffect</Link>
+        <Link to="/optionalHooks/useDebugValue">useDebugValue</Link>
+        <Link to="/optionalHooks/useImperativeHandle">useImperativeHandle</Link>
+        <Link to="/optionalHooks/useId">useId</Link>
       </nav>
       <Outlet></Outlet>
     </>

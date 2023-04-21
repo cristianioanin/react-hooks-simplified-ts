@@ -11,6 +11,9 @@ const NavbarLesserKnownHooks = lazy(() =>
     default: module.NavbarLesserKnownHooks,
   }))
 );
+const NavbarOptionalHooks = lazy(() =>
+  import('./Home').then((module) => ({ default: module.NavbarOptionalHooks }))
+);
 const UseStateComponent = lazy(() => import('./components/UseStateComponent'));
 const UseEffectComponent = lazy(
   () => import('./components/UseEffectComponent')
@@ -31,6 +34,12 @@ const UseTransitionComponent = lazy(
 );
 const UseDeferredValueComponent = lazy(
   () => import('./components/UseDeferredValueComponent')
+);
+const UseLayoutEffectComponent = lazy(
+  () => import('./components/UseLayoutEffectComponent')
+);
+const UseDebugValueComponent = lazy(
+  () => import('./components/UseDebugValueComponent')
 );
 
 function App() {
@@ -62,6 +71,19 @@ function App() {
                 element={<UseDeferredValueComponent />}
               />
             </Route>
+            <Route path="/optionalHooks" element={<NavbarOptionalHooks />}>
+              <Route
+                path="useLayoutEffect"
+                element={<UseLayoutEffectComponent />}
+              />
+              <Route
+                path="useDebugValue"
+                element={<UseDebugValueComponent />}
+              />
+              {/* <Route path="useImperativeHandle" element={<UseImperativeHandle />} />
+              <Route path="useId" element={<UseId />} /> */}
+            </Route>
+            <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         </BrowserRouter>
       </Suspense>
